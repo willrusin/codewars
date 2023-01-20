@@ -43,7 +43,15 @@ def expanded_form(num):
 
 
 ```python
+def expanded_form(num):
+    numstr = str(num)
+    output = []
+    for i, digit in enumerate(numstr):
+        if digit != 0:
+            output.append(digit + str("0" * (len(numstr)-i-1)))
+    return " + ".join(output)
 
+    TODO: still outputs 0000, need to skip if digit is 0
 ```
 
 ---
