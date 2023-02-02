@@ -2,36 +2,41 @@
 
 ---
 
-## Descending Order
+## Abbreviate a Two Word Name
 
 
 **Definition**
 
-Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
 
-Examples:
-Input: 42145 Output: 54421
+The output should be two capital letters with a dot separating them.
 
-Input: 145263 Output: 654321
+It should look like this:
 
-Input: 123456789 Output: 987654321
+Sam Harris => S.H
+
+patrick feeney => P.F
+
+
 
 ### Sample Tests]
 ```Python
 import codewars_test as test
 
 try:
-    from solution import Descending_Order as descending_order
+    from solution import abbrevName as abbrev_name
 except ImportError:
-    from solution import descending_order
+    from solution import abbrev_name
 
 @test.describe("Fixed Tests")
-def fixed_tests():
+def basic_tests():
     @test.it('Basic Test Cases')
     def basic_test_cases():
-        test.assert_equals(descending_order(0), 0)
-        test.assert_equals(descending_order(15), 51)
-        test.assert_equals(descending_order(123456789), 987654321)
+        test.assert_equals(abbrev_name("Sam Harris"), "S.H")
+        test.assert_equals(abbrev_name("patrick feenan"), "P.F")
+        test.assert_equals(abbrev_name("Evan C"), "E.C")
+        test.assert_equals(abbrev_name("P Favuzzi"), "P.F")
+        test.assert_equals(abbrev_name("David Mendieta"), "D.M")
 ```
 ---
 
@@ -39,8 +44,8 @@ def fixed_tests():
 
 
 ```python
-def descending_order(num):
-    # Bust a move right here
+def abbrev_name(name):
+    return
 ```
 
 ---
@@ -49,16 +54,13 @@ def descending_order(num):
 
 
 ```python
-def Descending_Order(num):
-    # use sorted with the reverse switch to first sort the input given and then reverse the order.
-    num = sorted([char for char in str(num)], reverse = True)
-    #join into an int from the list
-    num = int("".join(num))
-    return num
-
+def abbrev_name(name):
+    namestr = name.split(" ")
+    initials = namestr[0][0] +"." + namestr[1][0]
+    return initials.upper()`        
 ```
 
 ---
 
 
-[See on CodeWars.com](https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/python)
+[See on CodeWars.com](https://codewars.com/kata/57eadb7ecd143f4c9c0000a3/train/python)
